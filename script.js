@@ -27,7 +27,7 @@ submitBtn.addEventListener("click", function(event){
 	
 })
 
-window.addEventListener("DOMContentLoader",function(){
+window.addEventListener("DOMContentLoaded",function(){
 
 	function getCookies(name){
 
@@ -51,9 +51,9 @@ window.addEventListener("DOMContentLoader",function(){
 
 function applyStyles(size,color){
 	if(size){
-		document.body.style.fontstyle = size;
+		document.body.style.fontSize = size;
 	}
 	if(color){
-		document.body.style.fontstyle = color;
+		document.body.style.color = color;
 	}
 }
