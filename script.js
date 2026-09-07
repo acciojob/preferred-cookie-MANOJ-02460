@@ -18,9 +18,42 @@ submitBtn.addEventListener("click", function(event){
 
 		document.cookies = "fontsize="+encodeURIComponent(fontsize)+"; "+expires+"; path=/";
 		document.cookies = "fontcolor="+encodeURIComponent(fontcolor)+"; "+expires+"; path=/";
+		applyStyles(fontsize,fontcolor);
+		
 		alert("Both cookies are saved successfully");
 	}else{
 		alert("Please fill out both fields")
 	}
 	
 })
+
+window.addEventListener("DOMContentLoader",function(){
+
+	function getCookies(name){
+
+		let cookiesArr = document.cookies.split(";");
+		for(let i=0; i<cookiesArr.length; i++){
+			let cookiePair = cookieArr[i].split("=");
+			if(name === cookiePair[0].trim()){
+				return decodeURIComponent(cookiePair[1])
+			}
+		}
+		return null;
+	}
+
+	let savedFontsize = getCookies("fontsize");
+	let savedFontcolor = getCookies("fontcolor");
+
+	applyStyles(savedFontsize,savedFontcolor)
+})
+
+
+
+function applyStyles(size,color){
+	if(size){
+		document.body.style.fontstyle = size;
+	}
+	if(color){
+		document.body.style.fontstyle = color;
+	}
+}
